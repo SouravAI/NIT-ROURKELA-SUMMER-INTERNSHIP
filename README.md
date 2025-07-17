@@ -8,29 +8,36 @@ This project is a full pipeline to classify **heart sound signals (PCG)** into f
 
 ```
 pcg_classification_project/
-├── data/                         # Contains GDrive link to dataset
-│   └── gdrive_link.txt
-├── models/                       # Saved ONNX + quantized models (auto-generated)
-│   └── .temp.txt                 # Placeholder for GitHub (delete after clone)
-├── outputs/                      # Evaluation reports (auto-generated)
-│   └── .temp.txt                 # Placeholder (delete after clone)
-├── processed_data/               # Mel spectrogram tensors (.pt files)
-│   └── .temp.txt                 # Placeholder (delete after clone)
-├── src/                          # All source code
-│   ├── preprocess.py             # Preprocessing WAV to mel
-│   ├── dataset.py                # PyTorch Dataset and Dataloader
-│   ├── train_mobilenet.py        # Train MobileNetV3
-│   ├── train_squeezenet.py       # Train SqueezeNet
-│   ├── train_efficientnet.py     # Train EfficientNetV2-S
-│   ├── evaluate_mobilenet.py     # Evaluation script (MobileNet)
-│   ├── evaluate_squeezenet.py    # Evaluation script (SqueezeNet)
-│   ├── evaluate_efficientnet.py  # Evaluation script (EfficientNet)
-│   ├── export_onnx.py            # Export models to ONNX
-│   ├── quantize_onnx.py          # Quantize ONNX models
-│   ├── benchmark_onnx.py         # Benchmark ONNX inference speed
-│   └── infer.py                  # Predict from a new .wav file
-├── requirements.txt              # Python dependencies
-└── README.md                     # You are here!
+│
+├── data/ # ⚠️ Not included — place your dataset here
+│ └── dataset_link.txt # 🔗 Link to Google Drive for downloading WAV files
+│
+├── models/ # Trained & exported ONNX/quantized models (auto-created)
+│ └── .temp # (To be deleted — just a placeholder for GitHub)
+│
+├── outputs/ # Evaluation reports, prediction logs, confusion matrix, etc.
+│ └── .temp # (To be deleted)
+│
+├── processed_data/ # Preprocessed mel spectrograms (auto-generated)
+│ └── .temp # (To be deleted)
+│
+├── src/ # All source code
+│ ├── preprocess.py
+│ ├── dataset.py
+│ ├── train_mobilenet.py
+│ ├── train_squeezenet.py
+│ ├── train_efficientnet.py
+│ ├── evaluate_mobilenet.py
+│ ├── evaluate_squeezenet.py
+│ ├── evaluate_efficientnet.py
+│ ├── infer.py
+│ ├── export_onnx.py
+│ ├── quantize.py
+│ └── benchmark_onnx.py
+│
+├── config.yaml # 🧠 Configuration file for hyperparameters and preprocessing
+├── README.md # 📄 You're reading this
+└── requirements.txt # Python dependencies
 ```
 
 ---
@@ -47,7 +54,26 @@ pcg_classification_project/
 📦 **Download Dataset**:  
 Dataset is hosted externally (not included in repo).  
 📁 Navigate to: `data/gdrive_link.txt` and open the GDrive link to download the PCG WAV files.
+⚠️ Create your own `data/` folder if cloning this repo; not included due to size.
 
+---
+
+## 🔧 Configuration (config.yaml)
+
+All the important training parameters and preprocessing constants are centralized in `config.yaml`. Example:
+
+```yaml
+# Training Config
+batch_size: 32
+num_epochs: 30
+learning_rate: 0.001
+sample_rate: 16000
+n_mels: 128
+fmax: 8000
+segment_duration: 2.0
+train_split: 0.8
+val_split: 0.1
+test_split: 0.1
 ---
 
 ## ⚙️ Setup Instructions
