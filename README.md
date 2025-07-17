@@ -56,9 +56,9 @@ Dataset is hosted externally (not included in repo).
 📁 Navigate to: `data/gdrive_link.txt` and open the GDrive link to download the PCG WAV files.
 ⚠️ Create your own `data/` folder if cloning this repo; not included due to size.
 
-## 🔧 Configuration (config.yaml)
+## 🔧 Configuration (`config.yaml`)
 
-All the important training parameters and preprocessing constants are centralized in `config.yaml`. Example:
+All the important training parameters and preprocessing constants are centralized in a single file: `config.yaml`.
 
 ```yaml
 # Training Config
@@ -72,13 +72,33 @@ segment_duration: 2.0
 train_split: 0.8
 val_split: 0.1
 test_split: 0.1
----
+```
+
+📌 **Why use it?**
+- Makes experiments reproducible
+- Easy hyperparameter tweaks
+- Keeps training scripts clean and modular
+
 ## ⚙️ Setup Instructions
+
 ### 1. 🔧 Environment Setup
+
+Install the required dependencies using pip:
 
 ```bash
 pip install -r requirements.txt
 ```
+
+✅ **Tip:** It's recommended to use a virtual environment:
+
+```bash
+python -m venv venv
+venv\Scripts\activate  # Windows
+# or
+source venv/bin/activate  # Linux/macOS
+```
+
+---
 
 ### 2. 🎧 Preprocess WAV Data
 
