@@ -56,8 +56,6 @@ Dataset is hosted externally (not included in repo).
 📁 Navigate to: `data/gdrive_link.txt` and open the GDrive link to download the PCG WAV files.
 ⚠️ Create your own `data/` folder if cloning this repo; not included due to size.
 
----
-
 ## 🔧 Configuration (config.yaml)
 
 All the important training parameters and preprocessing constants are centralized in `config.yaml`. Example:
@@ -75,9 +73,7 @@ train_split: 0.8
 val_split: 0.1
 test_split: 0.1
 ---
-
 ## ⚙️ Setup Instructions
-
 ### 1. 🔧 Environment Setup
 
 ```bash
