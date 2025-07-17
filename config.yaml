@@ -1,0 +1,11 @@
+# Training Config
+batch_size: 32
+num_epochs: 30
+learning_rate: 0.001
+sample_rate: 16000
+n_mels: 128
+fmax: 8000
+segment_duration: 2.0
+train_split: 0.8
+val_split: 0.1
+test_split: 0.1
